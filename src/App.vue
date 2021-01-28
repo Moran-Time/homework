@@ -1,32 +1,59 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <el-container>
+      <el-header v-show="headerShow">
+        <el-menu class="el-menu-demo" mode="horizontal">
+          <el-menu-item index="4" class="float1">MMALL ADMIN</el-menu-item>
+          <el-menu-item index="4" class="float2" @click="goout"
+            >退出</el-menu-item
+          >
+          <el-menu-item index="4" class="float2">欢迎，admin</el-menu-item>
+        </el-menu>
+      </el-header>
+      <router-view />
+    </el-container>
   </div>
 </template>
 
-<style>
+<script>
+export default {
+  data() {
+    return {
+      headerShow: true,
+    };
+  },
+  methods: {
+    goout() {
+      this.$router.push("/login");
+    },
+  },
+
+  watch: {
+    $route: {
+      handler(newval, oldval) {
+        if (newval.path == "/login") {
+          this.headerShow = false;
+        } else {
+          this.headerShow = true;
+        }
+      },
+    },
+  },
+};
+</script>
+
+<style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+  .float1 {
+    float: left;
+  }
+  .float2 {
+    float: right;
+  }
 }
 </style>
