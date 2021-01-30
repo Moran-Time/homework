@@ -69,6 +69,7 @@
 <script>
 export default {
   methods: {
+    //搜索
     search() {
       console.log(this.formInline.Aid, this.formInline.user);
       this.$netClient

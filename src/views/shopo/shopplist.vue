@@ -26,7 +26,7 @@ export default {
       list: [],
     };
   },
-
+  //
   mounted() {
     this.$netClient.OTHER().then((res) => {
       console.log(res);
