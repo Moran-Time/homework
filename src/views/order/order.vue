@@ -45,7 +45,6 @@
       :page-size="pageSize"
       :total="total"
     >
-    /////
     </el-pagination>
   </div>
 </template>
