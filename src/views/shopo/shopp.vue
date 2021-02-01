@@ -65,7 +65,7 @@
   font-size: 30px;
 }
 </style>
-
+//////
 <script>
 export default {
   methods: {
